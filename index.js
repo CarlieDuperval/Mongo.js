@@ -20,6 +20,13 @@ const client = new MongoClient(url)
 // }
 
 
+
+
+// CREATE CUSTOMERS 
+
+
+
+
 // // const createCustomer = async (cust) => {
 // //      await client.connect()
 // //     const db = client.db('Commerce')
@@ -85,18 +92,22 @@ const client = new MongoClient(url)
 //getAllCustomers()
 
 
-const getAllSuppliers = async () => {
-      await client.connect()
-     const db = client.db('Commerce')
+// const getAllSuppliers = async () => {
+//       await client.connect()
+//      const db = client.db('Commerce')
 
-     const supplierCollection = db.collection('suppliers')
+//      const supplierCollection = db.collection('suppliers')
 
-     const suppliers = await supplierCollection.find({}).toArray()
+//      const suppliers = await supplierCollection.find({}).toArray()
 
-     console.log(...suppliers)
+//      console.log(...suppliers)
 
 
-}
+// }
+
+// CREATE SUPPLIERS
+
+
 
 // const createSupplier = async (supl) => {
 //     await client.connect()
@@ -124,55 +135,136 @@ const getAllSuppliers = async () => {
 
 // getAllSuppliers()
 
-const createMiltipleSupplier = async (multisupl) => {
+// const createMiltipleSupplier = async (multisupl) => {
+//    await client.connect()
+//   const db = client.db('Commerce')
+
+//   const supplierCollection = db.collection('suppliers')
+
+//   const supplier = await supplierCollection.insertMany(multisupl)
+
+//   console.log(supplier)
+
+// }
+
+// createMiltipleSupplier([
+//    {id: 2,
+//       name: " Jean Jacques",
+//       address:"8927 Miami Gardesn Fl ",
+//       phone: "786-2301919 ",
+//       contactpersonId:3
+//    },
+
+//   {id: 3,
+//       name: "Pierre Jean ",
+//       address:"1022 Lake Worth Fl",
+//       phone: "786-1032099 ",
+//       contactpersonId: 5
+//    },
+
+//    {id:4 ,
+//       name: "Joseph Hill ",
+//       address:"3440 Miami Fl ",
+//       phone: "560-4050990 ",
+//       contactpersonId:6
+//    },
+
+//    {id: 5,
+//       name: "Marie Felix ",
+//       address:"5670 Miami Fl ",
+//       phone: "456-6701023",
+//       contactpersonId:6
+//    },
+
+//       {id: 6,
+//       name: "Jule Michel ",
+//       address:"6659 Jog Ave Miami Fl ",
+//       phone: "786-8991034",
+//       contactpersonId:7
+//    },
+
+//    ])
+
+// getAllSuppliers()
+
+
+
+
+
+
+// ORDER ITEM
+
+const getAllOrderItems = async () => {
    await client.connect()
   const db = client.db('Commerce')
 
-  const supplierCollection = db.collection('suppliers')
+  const orderitemCollection = db.collection('orderitems')
 
-  const supplier = await supplierCollection.insertMany(multisupl)
+  const orderitems = await orderitemCollection.find({}).toArray()
 
-  console.log(supplier)
+  console.log(...orderitems)
+}
+
+// CREATE one ORDER ITEM
+
+
+
+
+const createOrderItem = async (orderIt) => {
+     await client.connect()
+    const db = client.db('Commerce')
+
+    const orderitemCollection = db.collection('orderitems')
+
+    const orderitem = await orderitemCollection.insertOne(orderIt)
+
+    console.log(orderitem)
+
+    //client.close()// to end connection
+
 
 }
 
-createMiltipleSupplier([
-   {id: 2,
-      name: " Jean Jacques",
-      address:"8927 Miami Gardesn Fl ",
-      phone: "786-2301919 ",
-      contactpersonId:3
-   },
+// createOrderItem({
+//    id: 2,
+//    productid: 20211011,
+//    orderid: 20211012,
+//    qty: 3
+// })
+// //getAllOrderItems()
 
-  {id: 3,
-      name: "Pierre Jean ",
-      address:"1022 Lake Worth Fl",
-      phone: "786-1032099 ",
-      contactpersonId: 5
-   },
 
-   {id:4 ,
-      name: "Joseph Hill ",
-      address:"3440 Miami Fl ",
-      phone: "560-4050990 ",
-      contactpersonId:6
-   },
+// CREATE MULTIPLE ORDER ITEM
 
-   {id: 5,
-      name: "Marie Felix ",
-      address:"5670 Miami Fl ",
-      phone: "456-6701023",
-      contactpersonId:6
-   },
+const createMiltipleOrderItem = async (multiOrderIt) => {
+      await client.connect()
+      const db = client.db('Commerce')
+   
+      const orderitemCollection = db.collection('orderitems')
+   
+      const orderitem = await orderitemCollection.insertMany(multiOrderIt)
+   
+   //   console.log(orderitem)
+   
+    }
+   
+    createMiltipleOrderItem([
+         {
+         id:3,
+         productid:20211012,
+         orderid:20211013,
+         qty:4 },
+         
+         {id:4,
+         productid:20211013,
+         orderid:20211014,
+         qty:5 },
+         
+         {id: 5,
+         productid: 20211014,
+         orderid: 20211015,
+         qty: 6
+      },
 
-   {id: 6,
-      name: "Jule Michel ",
-      address:"6659 Jog Ave Miami Fl ",
-      phone: "786-8991034",
-      contactpersonId:7
-   },
-
-   ])
-
-getAllSuppliers()
-
+    ])
+    getAllOrderItems()  

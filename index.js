@@ -194,36 +194,36 @@ const client = new MongoClient(url)
 
 // ORDER ITEM
 
-const getAllOrderItems = async () => {
-   await client.connect()
-  const db = client.db('Commerce')
+// const getAllOrderItems = async () => {
+//    await client.connect()
+//   const db = client.db('Commerce')
 
-  const orderitemCollection = db.collection('orderitems')
+//   const orderitemCollection = db.collection('orderitems')
 
-  const orderitems = await orderitemCollection.find({}).toArray()
+//   const orderitems = await orderitemCollection.find({}).toArray()
 
-  console.log(...orderitems)
-}
+//   console.log(...orderitems)
+// }
 
 // CREATE one ORDER ITEM
 
 
 
 
-const createOrderItem = async (orderIt) => {
-     await client.connect()
-    const db = client.db('Commerce')
+// const createOrderItem = async (orderIt) => {
+//      await client.connect()
+//     const db = client.db('Commerce')
 
-    const orderitemCollection = db.collection('orderitems')
+//     const orderitemCollection = db.collection('orderitems')
 
-    const orderitem = await orderitemCollection.insertOne(orderIt)
+//     const orderitem = await orderitemCollection.insertOne(orderIt)
 
-    console.log(orderitem)
+//     console.log(orderitem)
 
     //client.close()// to end connection
 
 
-}
+//}
 
 // createOrderItem({
 //    id: 2,
@@ -236,35 +236,214 @@ const createOrderItem = async (orderIt) => {
 
 // CREATE MULTIPLE ORDER ITEM
 
-const createMiltipleOrderItem = async (multiOrderIt) => {
-      await client.connect()
-      const db = client.db('Commerce')
+// const createMiltipleOrderItem = async (multiOrderIt) => {
+//       await client.connect()
+//       const db = client.db('Commerce')
    
-      const orderitemCollection = db.collection('orderitems')
+//       const orderitemCollection = db.collection('orderitems')
    
-      const orderitem = await orderitemCollection.insertMany(multiOrderIt)
+//       const orderitem = await orderitemCollection.insertMany(multiOrderIt)
    
    //   console.log(orderitem)
    
+   //  }
+   
+   //  createMiltipleOrderItem([
+   //       {
+   //       id:3,
+   //       productid:20211012,
+   //       orderid:20211013,
+   //       qty:4 },
+         
+   //       {id:4,
+   //       productid:20211013,
+   //       orderid:20211014,
+   //       qty:5 },
+         
+   //       {id: 5,
+   //       productid: 20211014,
+   //       orderid: 20211015,
+   //       qty: 6
+   //    },
+
+   //  ])
+   //  getAllOrderItems()  
+
+
+
+
+    //  CONTACT PERSON
+
+  //   const getAllContactPersons = async () => {
+  //     await client.connect()
+  //    const db = client.db('Commerce')
+   
+  //    const contactpersonCollection = db.collection('contactpersons')
+   
+  //    const contactpersons = await contactpersonCollection.find({}).toArray()
+   
+  //    console.log(...contactpersons)
+  //  }
+   
+   // CREATE CONTACT PERSON
+   
+   
+   
+   
+  //  const createContactPerson = async (contactPer) => {
+  //       await client.connect()
+  //      const db = client.db('Commerce')
+   
+  //      const contactpersonCollection = db.collection('contactpersons')
+   
+  //      const contactpersons = await contactpersonCollection.insertOne(contactPer)
+   
+  //      console.log(contactpersons)
+   
+  //      //client.close()// to end connection
+   
+   
+  //  }
+   
+  //  createContactPerson({
+  //     id: 2,
+  //     name: "Julia Roberts",
+  //     email: "julia@gmail.com",
+  //     phone: "458-3099090",
+  //     address: "5678 Miami Gardens Florida"
+
+  //  })
+
+
+   //CREATE MULTIPLE CONTACTPERSONS
+
+  //   const createMiltipleContactPersons = async (multiContactP) => {
+  //         await client.connect()
+  //         const db = client.db('Commerce')
+      
+  //         const contactpersonCollection = db.collection('contactpersons')
+      
+  //         const contactperson = await contactpersonCollection.insertMany(multiContactP)
+      
+  //        console.log(contactperson)
+      
+  //       }
+      
+  //       createMiltipleContactPersons([
+  //            {id: 3,
+  //             name: "Julie RobertO",
+  //             email: "julie@gmail.com",
+  //             phone: "458-3159099",
+  //             address: "5678 Miami Gardens Florida"},
+
+  //             {id: 4,
+  //             name: "James Germian",
+  //             email: "james@gmail.com",
+  //             phone: "458-3154545",
+  //             address: "5676 Miami Florida"},
+
+  //             {id: 5,
+  //             name: "Jules Jean Phillipe",
+  //             email: "julesjean@gmail.com",
+  //             phone: "458-3155656",
+  //             address: "5674 Miami Fl"},
+
+  //             {id: 6,
+  //             name: "Jean Phillipe",
+  //             email: "jean@gmail.com",
+  //             phone: "458-3155657",
+  //             address: "5656 Miami Fl"},
+
+  //       ])
+
+
+
+
+// ORDERS 
+
+
+  const getAllOders = async () => {
+    await client.connect()
+    const db = client.db('Commerce')
+   
+      const orderCollection = db.collection('orders')
+   
+      const orders = await orderCollection.find({}).toArray()
+   
+      console.log(...orders)
     }
    
-    createMiltipleOrderItem([
-         {
-         id:3,
-         productid:20211012,
-         orderid:20211013,
-         qty:4 },
-         
-         {id:4,
-         productid:20211013,
-         orderid:20211014,
-         qty:5 },
-         
-         {id: 5,
-         productid: 20211014,
-         orderid: 20211015,
-         qty: 6
-      },
+   // CREATE ORDERS
+   
+   
+   
+   
+  //   const createOrder = async (ord) => {
+  //       await client.connect()
+  //       const db = client.db('Commerce')
+   
+  //       const orderCollection = db.collection('orders')
+   
+  //       const orders = await orderCollection.insertOne(ord)
+   
+  //       console.log(orders)
+   
+  // //      client.close()// to end connection
+   
+   
+  //  }
+   
+  //   createOrder({
+  //       id:101,
+  //       orderdate: 20220201,
+  //       deliverydate:20110301,
+  //       customerid:1,
+  //       totalprice:150.01
+  //      })
 
-    ])
-    getAllOrderItems()  
+
+//  CREATE MULTIPLE CONTACTPERSONS
+
+     const createMultipleOrder = async (multiorder) => {
+           await client.connect()
+           const db = client.db('Commerce')
+      
+           const orderCollection = db.collection('orders')
+      
+          const orders = await orderCollection.insertMany(multiorder)
+      
+  //        console.log(orders)
+      
+        }
+      
+         createMultipleOrder([
+                  {
+                   id:102,
+                   orderdate: 20220203,
+                   deliverydate:20110304,
+                   customerid:3,
+                   totalprice:15000
+                  },
+                  {id:103,
+                  orderdate: 20220204,
+                  deliverydate:20110305,
+                  customerid:4,
+                  totalprice:1600
+                  },
+                  {id:104,
+                  orderdate: 20220205,
+                  deliverydate:20110306,
+                  customerid:5,
+                  totalprice:45000
+                  },
+                  {id:105,
+                 orderdate: 20220206,
+                  deliverydate:20110307,
+                  customerid:6,
+                  totalprice:4350
+                    }
+
+         ])
+
+
+getAllOders()

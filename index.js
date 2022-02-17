@@ -359,91 +359,64 @@ const client = new MongoClient(url)
 
 
 
-// ORDERS 
+// PRODUCTCATEGORIES 
 
 
-  const getAllOders = async () => {
-    await client.connect()
-    const db = client.db('Commerce')
+   const getAllProductCategories = async () => {
+     await client.connect()
+     const db = client.db('Commerce')
    
-      const orderCollection = db.collection('orders')
+      const productcategoryCollection = db.collection('productcategories')
    
-      const orders = await orderCollection.find({}).toArray()
+      const productcategories = await productcategoryCollection.find({}).toArray()
    
-      console.log(...orders)
-    }
-   
-   // CREATE ORDERS
+      console.log(...productcategories)
+     }
    
    
    
    
-  //   const createOrder = async (ord) => {
-  //       await client.connect()
-  //       const db = client.db('Commerce')
    
-  //       const orderCollection = db.collection('orders')
+  //   const createProductCategory = async (productCateg) => {
+  //        await client.connect()
+  //        const db = client.db('Commerce')
    
-  //       const orders = await orderCollection.insertOne(ord)
+  //        const productcategoryCollection = db.collection('productcategories')
    
-  //       console.log(orders)
+  //        const productcategories = await productcategoryCollection.insertOne(productCateg)
+   
+  //        console.log(productcategories)
    
   // //      client.close()// to end connection
    
    
-  //  }
+  //   }
    
-  //   createOrder({
-  //       id:101,
-  //       orderdate: 20220201,
-  //       deliverydate:20110301,
-  //       customerid:1,
-  //       totalprice:150.01
-  //      })
+  //    createProductCategory({
+  //        id:1,
+  //        name:"Glasseware",
+  //        parentcategory:3,
+  //       })
 
 
 //  CREATE MULTIPLE CONTACTPERSONS
 
-     const createMultipleOrder = async (multiorder) => {
-           await client.connect()
+     const createMultipleProductCategory = async (multiProdCateg) => {
+            await client.connect()
            const db = client.db('Commerce')
       
-           const orderCollection = db.collection('orders')
+            const productcategoryCollection = db.collection('productcategories')
       
-          const orders = await orderCollection.insertMany(multiorder)
+           const productcategories = await productcategoryCollection.insertMany(multiProdCateg)
       
-  //        console.log(orders)
+  // //        console.log(orders)
       
-        }
+         }
       
-         createMultipleOrder([
-                  {
-                   id:102,
-                   orderdate: 20220203,
-                   deliverydate:20110304,
-                   customerid:3,
-                   totalprice:15000
-                  },
-                  {id:103,
-                  orderdate: 20220204,
-                  deliverydate:20110305,
-                  customerid:4,
-                  totalprice:1600
-                  },
-                  {id:104,
-                  orderdate: 20220205,
-                  deliverydate:20110306,
-                  customerid:5,
-                  totalprice:45000
-                  },
-                  {id:105,
-                 orderdate: 20220206,
-                  deliverydate:20110307,
-                  customerid:6,
-                  totalprice:4350
-                    }
+          createMultipleProductCategory([
+              {id:2, name:"Beverage",parentcategory:15},{id:3, name:"Plastic Goods", parentcategory:12},{id:4, name:"Electric Toys", parentcategory:13},{id:5, name:"Plastic Furniture", parentcategory:12} 
 
-         ])
+          ])
+       getAllProductCategories()
 
 
-getAllOders()

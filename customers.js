@@ -7,29 +7,30 @@ const getCustomerCollection =  async () => {
     return db.collection('customers')
 }
 
-// const getAllCustomers = async () => {
+export const getAllCustomers = async () => {
 
-//     const client = await dbClient();
-//     const db = client.db('Commerce')
+    const client = await dbClient();
+    const db = client.db('Commerce')
 
-//     const customerCollection = db.collection('customers')
+    const customerCollection = db.collection('customers')
 
-//     const customers = await customerCollection
-//     .find({}, { projection: {name: 1 }})
-//     .toArray()
+    const customers = await customerCollection
+    .find({}, {name: 1 }) // .find({}, { projection: {name: 1}})
+    .toArray()
 
-//     const result = customers.map(customer => {
-//         return {
-//             id: customer._id.toString(), 
-//             name: customer.name,
-//             email: customer.email
-//         }
-//     })
+    const result = customers.map(customer => {
+        return {
+            id: customer._id.toString(), 
+            name: customer.name,
+            email: customer.email
+        }
+    })
 
-//     console.log(...result)
-//     // client.close()
+    //console.log(...result)
+    return result
+    // client.close()
 
-// }
+}
 
 const createCustomer = async (customer) => {
 
@@ -41,6 +42,6 @@ const createCustomer = async (customer) => {
 
 }
 
-createCustomer({name: "Tda and Tsouk",
- email:"Tnouk@dorlus", customerId: 20})
+// createCustomer({name: "Tda and Tsouk",
+//  email:"Tnouk@dorlus", customerId: 20})
 //getAllCustomers() 
